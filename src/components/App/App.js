@@ -15,14 +15,21 @@ import { cards, savecards } from '../../utils/constants.js';
 
 function App() {
   const history = useHistory();
+  const [isMenuPopupOpen, setIsMenuPopupOpen] = React.useState(false);
 
   function signOut() {
     history.push('/signin');
   }
+  function openMenu() {
+    setIsMenuPopupOpen(true);
+  }
+  function closeMenu() {
+    setIsMenuPopupOpen(false);
+  }
 
   return (
     <div className="page">
-      <Header />
+      <Header onOpen={openMenu} />
       <Switch>
         <Route exact path="/">
           <Main />
@@ -45,7 +52,7 @@ function App() {
       </Switch>
       <Footer />
       <ErrorPopup />
-      <MenuPopup />
+      <MenuPopup isOpen={isMenuPopupOpen} onClose={closeMenu} />
     </div>
   );
 }

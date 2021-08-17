@@ -3,7 +3,7 @@ import Navigation from '../Navigation/Navigation.js';
 import './Header.css';
 import { Link, useLocation } from 'react-router-dom';
 
-function Header() {
+function Header(props) {
   const {pathname} = useLocation();
 
   return (
@@ -33,7 +33,7 @@ function Header() {
             </Link>
           </div>
         ) : (
-          <Navigation />
+          <Navigation onOpen={props.onOpen} />
         )
         }
       </div>

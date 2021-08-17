@@ -1,12 +1,49 @@
+import account from '../../images/account.png';
 import './MenuPopup.css';
+import { Link, useLocation } from 'react-router-dom';
 
-function MenuPopup() {
+function MenuPopup(props) {
+  const {pathname} = useLocation();
+
   return (
-    <div className='menu'>
+    <div className={`menu ${props.isOpen ? 'menu_opened' : ''}`}>
       <div className="menu__container">
-        <h2 className="menu__status">404</h2>
-        <p className="menu__message">Страница не найдена</p>
-        <button type="button" aria-label="Выход" className="menu__exit">Назад</button>
+        <button type="button" aria-label="Выход" className="menu__exit" onClick={props.onClose}></button>
+        <ul className="menu__list">
+          <li className={`menu__list-item ${(pathname === '/') ? 'menu__list-item_checked' : ''}`}>
+            <Link
+              to={'/'}
+              className="menu__link"
+            >
+              {'Главная'}
+            </Link>
+          </li>
+          <li className={`menu__list-item ${(pathname === '/movies') ? 'menu__list-item_checked' : ''}`}>
+            <Link
+              to={'/movies'}
+              className="menu__link"
+            >
+              {'Фильмы'}
+            </Link>
+          </li>
+          <li className={`menu__list-item ${(pathname === '/saved-movies') ? 'menu__list-item_checked' : ''}`}>
+            <Link
+              to={'/saved-movies'}
+              className="menu__link"
+            >
+              {'Сохранённые фильмы'}
+            </Link>
+          </li>
+        </ul>
+        <Link
+          to={'/profile'}
+          className={`menu__link-account ${(pathname === '/profile') ? 'menu__link-account_checked' : ''}`}
+        >
+          {'Аккаунт'}
+          <div className="menu__link-account-box">
+            <img className="menu__link-account-image" alt="Значок профиля" src={account} />
+          </div>
+        </Link>
       </div>
     </div>
   );

@@ -2,7 +2,7 @@ import account from '../../images/account.png';
 import { Link, useLocation } from 'react-router-dom';
 import './Navigation.css';
 
-function Navigation() {
+function Navigation(props) {
   const {pathname} = useLocation();
 
   return (
@@ -36,7 +36,7 @@ function Navigation() {
           </div>
         </Link>
       </nav>
-      <button type="button" aria-label="Меню" className="navigation__menu"></button>
+      <button type="button" aria-label="Меню" className="navigation__menu" onClick={props.onOpen}></button>
     </div>
   );
 }

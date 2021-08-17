@@ -54,3 +54,7 @@
   border: none;
   cursor: pointer;
 }
+
+.error__exit:focus {
+  outline: none;
+}

@@ -1,0 +1,24 @@
+.movies {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 0;
+}
+
+.movies__button {
+  margin: 60px 0 80px;
+  padding: 0;
+  border: none;
+  background: #F9F9F9;
+  border-radius: 6px;
+  width: 320px;
+  height: 36px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+}
+
+.movies__button_hidden {
+  display: none;
+}

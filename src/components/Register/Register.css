@@ -1,0 +1,126 @@
+.register {
+  display: flex;
+  justify-content: center;
+}
+
+.register__container {
+  margin: 70px 0 0 0;
+  width: 100%;
+  max-width: 396px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+}
+
+.register__logo {
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+}
+
+.register__logo-image {
+  height: 38px;
+  width: 38px;
+}
+
+.register__title {
+  margin: 40px 0 40px;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 29.05px;
+}
+
+.register__form {
+  position: relative;
+}
+
+.register__input-title {
+  padding: 0;
+  margin: 0 0 5px;
+  color: rgba(160, 160, 160, 1);
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12.1px;
+}
+
+.register__input {
+  padding: 0 0 10px;
+  margin: 0 0 24px;
+  width: 100%;
+  font-family: inherit;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16.94px;
+  background-color: transparent;
+  color: #000;
+  border: none;
+  border-bottom: 1px solid rgba(232, 232, 232, 1);
+}
+
+.register__input:focus {
+  outline: none;
+}
+
+.register__input:last-of-type {
+  margin: 0 0 83px;
+}
+
+.register__input_type_error {
+  color: #FF3055;
+}
+
+.register__error {
+  position: absolute;
+  font-weight: 400;
+  font-size: 10px;
+  line-height: 12px;
+  color: rgba(255, 48, 85, 1);
+  top: 50px;
+  left: 0;
+}
+
+.register__error:nth-of-type(2n) {
+  top: 118px;
+}
+
+.register__error:nth-of-type(3n) {
+  top: 186px;
+}
+
+.register__submit {
+  margin: 69px 0 16px;
+  padding: 0;
+  height: 45px;
+  width: 100%;
+  background: #3456F3;
+  border-radius: 3px;
+  color: #fff;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  border: none;
+}
+
+.register__submit:focus {
+  outline: none;
+}
+
+.register__signin {
+  margin: 0;
+  color: #A0A0A0;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  align-self: center;
+}
+
+.register__signin-link {
+  margin: 0 0 0 6px;
+  text-decoration: none;
+  color: #3456F3;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}

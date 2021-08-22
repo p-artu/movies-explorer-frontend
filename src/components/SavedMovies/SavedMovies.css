@@ -5,3 +5,14 @@
   justify-content: flex-start;
   padding: 0 0 150px;
 }
+
+@media screen and (max-width: 768px) {
+  .savemovies {
+    padding-bottom: 170px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .savemovies {
+    padding-bottom: 160px;
+  }
+}

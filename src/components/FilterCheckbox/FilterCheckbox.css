@@ -2,6 +2,7 @@
   margin: 0 0 69px;
   padding: 0;
   display: flex;
+  cursor: pointer;
 }
 
 .filtercheckbox__invisible {
@@ -47,4 +48,19 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 18px;
+}
+
+@media screen and (max-width: 768px) {
+  .filtercheckbox {
+    margin-bottom: 50px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .filtercheckbox {
+    margin-bottom: 49px;
+  }
+  .filtercheckbox__text {
+    margin-left: 13px;
+    font-size: 11px;
+  }
 }

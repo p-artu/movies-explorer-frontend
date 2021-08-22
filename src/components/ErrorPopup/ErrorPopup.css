@@ -53,8 +53,39 @@
   background: none;
   border: none;
   cursor: pointer;
+  transition: opacity .3s linear;
 }
 
 .error__exit:focus {
   outline: none;
 }
+
+.error__exit:hover {
+  opacity: .8;
+}
+
+@media screen and (max-width: 900px) {
+  .error__container {
+    margin-top: 408px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .error__container {
+    margin-top: 329px;
+  }
+  .error__status {
+    margin-bottom: 10px;
+    font-size: 80px;
+    line-height: 97px;
+  }
+  .error__message {
+    margin-bottom: 284px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .error__exit {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+

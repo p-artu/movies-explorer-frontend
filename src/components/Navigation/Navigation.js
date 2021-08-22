@@ -30,7 +30,7 @@ function Navigation(props) {
           to={'/profile'}
           className="navigation__link-account"
         >
-          {'Аккаунт'}
+          <p className="navigation__link-account-text">Аккаунт</p>
           <div className="navigation__link-account-box">
             <img className="navigation__link-account-image" alt="Значок профиля" src={account} />
           </div>

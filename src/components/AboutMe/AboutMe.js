@@ -15,7 +15,7 @@ function AboutMe() {
             С 2015 года работал в компании «СКБ Контур». После того, как прошёл курс по веб-разработке,
             начал заниматься фриланс-заказами и ушёл с постоянной работы.
           </p>
-          <ul class="aboutme__links">
+          <ul className="aboutme__links">
             <li className="aboutme__link-item">
               <a href="https://www.instagram.com/yndx.praktikum/" target="_blank" className="aboutme__link" rel="noreferrer">Instagram</a>
             </li>

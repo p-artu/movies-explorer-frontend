@@ -6,10 +6,10 @@
 
 .aboutme__container {
   display: grid;
-  grid-template-columns: 600px 270px;
-  grid-template-rows: auto;
-  gap: 0 270px;
-  justify-content: center;
+  grid-template-columns: minmax(292px, 600px) auto;
+  row-gap: 40px;
+  column-gap: 270px;
+  justify-content: space-between;
 }
 
 .aboutme__title {
@@ -25,23 +25,23 @@
 
 .aboutme__name {
   margin: 0;
-  font-size: 50px;
   font-weight: 400;
+  font-size: 50px;
   line-height: 58px;
   letter-spacing: -.04em;
 }
 
 .aboutme__job {
   margin: 18px 0 26px;
-  font-size: 18px;
   font-weight: 500;
+  font-size: 18px;
   line-height: 20px;
 }
 
 .aboutme__description {
   margin: 0 0 99px;
-  font-size: 14px;
   font-weight: 400;
+  font-size: 14px;
   line-height: 22px;
 }
 
@@ -60,21 +60,31 @@
   color: #000;
   text-decoration: none;
   margin: 0 20px 0 0;
-  font-size: 14px;
   font-weight: 500;
+  font-size: 14px;
   line-height: 17px;
+  transition: opacity .3s linear;
+}
+
+.aboutme__link:hover {
+  opacity: .7;
 }
 
 .aboutme__avatar {
-  width: 270px;
-  height: 327px;
+  height: 100%;
+  object-fit: cover;
 }
 
-@media screen and (max-width: 1280px) {
+@media screen and (max-width: 1070px) {
   .aboutme__container {
-    grid-template-columns: 364px 255px;
-    grid-template-rows: auto;
-    gap: 0 49px;
+    grid-template-columns: minmax(292px, 600px) auto;
+    column-gap: 49px;
+  }
+}
+@media screen and (max-width: 900px) {
+  .aboutme {
+    margin: 0 50px;
+    width: calc(100% - 100px);
   }
   .aboutme__title {
     padding-top: 90px;
@@ -93,8 +103,49 @@
     font-size: 12px;
     line-height: 18px;
   }
+}
+@media screen and (max-width: 700px) {
+  .aboutme__container {
+    grid-template-columns: repeat(auto-fit, auto);
+    justify-content: center;
+    justify-items: center;
+    column-gap: 0;
+  }
   .aboutme__avatar {
-    width: 255px;
-    height: 307px;
+    grid-row: 1;
+    width: 100%;
+    max-width: 292px;
+  }
+  .aboutme__text-container {
+    grid-row: 2;
+  }
+}
+@media screen and (max-width: 500px) {
+  .aboutme {
+    margin: 0 14px;
+    width: calc(100% - 28px);
+  }
+  .aboutme__title {
+    margin-bottom: 60px;
+    padding: 70px 0 28px;
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .aboutme__name {
+    font-size: 30px;
+    line-height: 36px;
+  }
+  .aboutme__job {
+    margin: 20px 0 20px;
+    font-size: 11px;
+    line-height: 16px;
+  }
+  .aboutme__description {
+    margin-bottom: 40px;
+    font-size: 11px;
+    line-height: 16px;
+  }
+  .aboutme__link {
+    margin-right: 26px;
   }
 }

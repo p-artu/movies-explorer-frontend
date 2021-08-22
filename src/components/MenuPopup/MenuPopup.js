@@ -8,7 +8,10 @@ function MenuPopup(props) {
   return (
     <div className={`menu ${props.isOpen ? 'menu_opened' : ''}`}>
       <div className="menu__container">
-        <button type="button" aria-label="Выход" className="menu__exit" onClick={props.onClose}></button>
+        <button type="button" aria-label="Выход" className="menu__exit" onClick={props.onClose}>
+          <span className="menu__cross-element"></span>
+          <span className="menu__cross-element"></span>
+        </button>
         <ul className="menu__list">
           <li className={`menu__list-item ${(pathname === '/') ? 'menu__list-item_checked' : ''}`}>
             <Link

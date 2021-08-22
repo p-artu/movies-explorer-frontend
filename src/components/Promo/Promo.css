@@ -26,3 +26,31 @@
   text-align: center;
   letter-spacing: -.04em;
 }
+
+@media screen and (max-width: 850px) {
+  .promo {
+    background-position: center 224px;
+  }
+  .promo__title {
+    margin: 326px 0 342px;
+  }
+}
+@media screen and (max-width: 700px) {
+  .promo__title {
+    font-size: 41px;
+    line-height: 49px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .promo {
+    background-size: 248px;
+    background-position: center 142px;
+  }
+  .promo__title {
+    max-width: 300px;
+    margin: 207px 0 246px;
+    font-size: 31px;
+    line-height: 39px;
+  }
+}
+

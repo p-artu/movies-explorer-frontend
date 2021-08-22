@@ -4,7 +4,7 @@
 }
 
 .login__container {
-  margin: 70px 0 0 0;
+  margin: 70px 0 0;
   width: 100%;
   max-width: 396px;
   display: flex;
@@ -28,7 +28,7 @@
   margin: 40px 0 40px;
   font-weight: 500;
   font-size: 24px;
-  line-height: 29.05px;
+  line-height: 29px;
 }
 
 .login__form {
@@ -41,7 +41,7 @@
   color: rgba(160, 160, 160, 1);
   font-weight: 400;
   font-size: 10px;
-  line-height: 12.1px;
+  line-height: 12px;
 }
 
 .login__input {
@@ -51,7 +51,7 @@
   font-family: inherit;
   font-weight: 500;
   font-size: 14px;
-  line-height: 16.94px;
+  line-height: 17px;
   background-color: transparent;
   color: #000;
   border: none;
@@ -97,10 +97,16 @@
   line-height: 17px;
   text-align: center;
   border: none;
+  transition: opacity .3s linear;
+  cursor: pointer;
 }
 
 .login__submit:focus {
   outline: none;
+}
+
+.login__submit:hover {
+  opacity: .8;
 }
 
 .login__signup {
@@ -119,4 +125,42 @@
   font-weight: 400;
   font-size: 14px;
   line-height: 17px;
+  transition: opacity .3s linear;
+  cursor: pointer;
+}
+
+.login__signup-link:hover {
+  opacity: .8;
+}
+
+@media screen and (max-width: 800px) {
+  .login__container {
+    margin-top: 232px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .login__container {
+    margin-top: 56px;
+    max-width: 260px;
+  }
+  .login__logo {
+    align-self: center;
+  }
+  .login__title {
+    margin: 50px 0 80px;
+  }
+  .login__submit {
+    margin: 267px 0 14px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .login__signup {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .login__signup-link {
+    margin-left: 7px;
+    font-size: 12px;
+    line-height: 15px;
+  }
 }

@@ -18,7 +18,9 @@ function Profile(props) {
               <span className="profile__error" id="email-input-error">dddd</span>
             </li>
           </ul>
+          <span className="profile__submit-error profile__submit-error_hidden" id="profile-error">При обновлении профиля произошла ошибка.</span>
           <button className="profile__submit" type="submit">Редактировать</button>
+          <button className="profile__save-submit profile__save-submit_disabled profile__save-submit_hidden" type="submit">Сохранить</button>
         </form>
         <button onClick={props.signOut} className="profile__exit">Выйти из аккаунта</button>
       </div>

@@ -1,5 +1,5 @@
 .portfolio {
-  margin: 0 auto;
+  margin: 0 70px;
   width: calc(100% - 140px);
   max-width: 1140px;
   padding: 0 0 107px;
@@ -21,7 +21,7 @@
 
 .portfolio__list-item {
   font-size: 0;
-  margin: 20px 0 0 0;
+  margin: 20px 0 0;
   border-bottom: 1px solid rgba(232, 232, 232, 1);
 }
 
@@ -34,13 +34,50 @@
   text-decoration: none;
   color: #000;
   margin: 0;
-  padding: 0 0 19px 0;
+  padding: 0 0 19px;
   font-weight: 400;
   font-size: 30px;
   line-height: 50px;
   letter-spacing: -.04em;
   background-image: url('../../images/arrow.png');
   background-repeat: no-repeat;
-  background-position: right;
+  background-position: top 20px right;
   background-size: 18px 17px;
+  transition: opacity .3s linear;
+}
+
+.portfolio__link:hover {
+  opacity: .7;
+}
+
+@media screen and (max-width: 900px) {
+  .portfolio {
+    margin: 0 50px;
+    width: calc(100% - 100px);
+    padding-bottom: 71px;
+  }
+  .portfolio__title {
+    margin-top: 90px;
+  }
+  .portfolio__link {
+    font-size: 28px;
+    background-size: 16px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .portfolio {
+    margin: 0 14px;
+    width: calc(100% - 28px);
+    padding-bottom: 51px;
+  }
+  .portfolio__title {
+    margin: 70px 0 20px;
+    font-size: 14px;
+  }
+  .portfolio__link {
+    font-size: 18px;
+    line-height: 28px;
+    background-size: 11px;
+    background-position: top 9px right;
+  }
 }

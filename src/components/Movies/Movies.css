@@ -17,8 +17,26 @@
   font-weight: 500;
   font-size: 12px;
   line-height: 15px;
+  transition: opacity .3s linear;
+  cursor: pointer;
+}
+
+.movies__button:hover {
+  opacity: .8;
 }
 
 .movies__button_hidden {
   display: none;
+}
+
+@media screen and (max-width: 768px) {
+  .movies__button {
+    margin: 80px 0 80px;
+  }
+}
+@media screen and (max-width: 500px) {
+  .movies__button {
+    margin: 70px 0 80px;
+    width: 240px;
+  }
 }

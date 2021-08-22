@@ -4,7 +4,7 @@ function Portfolio() {
   return (
     <section className="portfolio" id="portfolio">
       <h2 className="portfolio__title">Портфолио</h2>
-      <ul class="portfolio__list">
+      <ul className="portfolio__list">
         <li className="portfolio__list-item">
           <a href="https://p-artu.github.io/how-to-learn/index.html" target="_blank" className="portfolio__link" rel="noreferrer">Статичный сайт</a>
         </li>

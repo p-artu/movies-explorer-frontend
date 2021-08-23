@@ -114,6 +114,12 @@
   opacity: .8;
 }
 
+.register__submit_disabled {
+  background: #f8f8f8;
+  color: #c2c2c2;
+  cursor: default;
+}
+
 .register__signin {
   margin: 0;
   color: #A0A0A0;

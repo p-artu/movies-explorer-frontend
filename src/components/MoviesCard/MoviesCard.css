@@ -1,0 +1,109 @@
+.moviescard {
+  margin: 40px 0 0;
+  padding: 6px 6px 6px 22px;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 1140px;
+  background: #f9f9f9;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+}
+
+.moviescard__title {
+  margin: 16px 0 13px;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+}
+
+.moviescard__time {
+  margin: 0 0 30px;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: #a0a0a0;
+}
+
+.moviescard__like {
+  width: 14px;
+  height: 12px;
+  border: none;
+  background-color: inherit;
+  background-image: url(../../images/heart_empty.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 14px 12px;
+  cursor: pointer;
+  transition: opacity .3s linear;
+}
+
+.moviescard__like:hover {
+  opacity: .7;
+}
+
+.moviescard__like_active {
+  background-image: url(../../images/heart_full.png);
+}
+
+.moviescard__trash {
+  width: 14px;
+  height: 12px;
+  border: none;
+  background-color: inherit;
+  background-image: url(../../images/trash.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 14px 12px;
+  cursor: pointer;
+  transition: opacity .3s linear;
+}
+
+.moviescard__trash:hover {
+  opacity: .7;
+}
+
+.moviescard__image {
+  width: 220px;
+  height: 122px;
+}
+
+@media screen and (max-width: 600px) {
+  .moviescard {
+    margin-top: 20px;
+    padding: 0;
+    width: 300px;
+    flex-direction: column-reverse;
+    justify-content: flex-start;
+    align-items: stretch;
+  }
+  .moviescard__container {
+    padding: 14px 16px 14px 12px;
+    box-sizing: border-box;
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: space-between;
+  }
+  .moviescard__title {
+    margin: 0 0 8px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .moviescard__time {
+    margin: 0;
+  }
+  .moviescard__like {
+    margin-top: 2px;
+    grid-row: 1;
+    grid-column: 2;
+  }
+  .moviescard__trash {
+    margin-top: 2px;
+    grid-row: 1;
+    grid-column: 2;
+  }
+  .moviescard__image {
+    width: 300px;
+    height: 168px;
+  }
+}

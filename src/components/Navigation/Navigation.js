@@ -1,5 +1,5 @@
 import account from '../../images/account.png';
-import { Link, useLocation } from 'react-router-dom';
+import { NavLink, useLocation } from 'react-router-dom';
 import './Navigation.css';
 
 function Navigation(props) {
@@ -10,31 +10,34 @@ function Navigation(props) {
       <nav className="navigation__links">
         <ul className="navigation__list">
           <li className="navigation__list-item">
-            <Link
+            <NavLink
               to={'/movies'}
-              className={`navigation__link ${(pathname === '/movies') ? 'navigation__link_active' : ''}`}
+              className={`navigation__link ${pathname === '/' ? 'navigation__link_main' : '' }`}
+              activeClassName="navigation__link_active"
             >
               {'Фильмы'}
-            </Link>
+            </NavLink>
           </li>
           <li className="navigation__list-item">
-            <Link
+            <NavLink
               to={'/saved-movies'}
-              className={`navigation__link ${(pathname === '/saved-movies') ? 'navigation__link_active' : ''}`}
+              className={`navigation__link ${pathname === '/' ? 'navigation__link_main' : '' }`}
+              activeClassName="navigation__link_active"
             >
               {'Сохранённые фильмы'}
-            </Link>
+            </NavLink>
           </li>
         </ul>
-        <Link
+        <NavLink
           to={'/profile'}
           className="navigation__link-account"
+          activeClassName="navigation__link-account_active"
         >
-          <p className="navigation__link-account-text">Аккаунт</p>
+          <p className={`navigation__link-account-text ${pathname === '/' ? 'navigation__link-account-text_main' : '' }`}>Аккаунт</p>
           <div className="navigation__link-account-box">
             <img className="navigation__link-account-image" alt="Значок профиля" src={account} />
           </div>
-        </Link>
+        </NavLink>
       </nav>
       <button type="button" aria-label="Меню" className="navigation__menu" onClick={props.onOpen}></button>
     </div>

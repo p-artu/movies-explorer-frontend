@@ -23,10 +23,10 @@
   align-items: center;
 }
 
-.header__container_not-flexible {
+/* .header__container_not-flexible {
   display: flex;
   justify-content: stretch;
-}
+} */
 
 .header__logo {
   margin: 0;

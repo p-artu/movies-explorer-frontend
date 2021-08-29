@@ -84,6 +84,14 @@
   outline: none;
 }
 
+.profile__input::placeholder {
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: #bdc4c2;
+}
+
 .profile__input_type_error {
   color: #FF3055;
 }
@@ -110,6 +118,21 @@
 }
 
 .profile__submit-error_hidden {
+  display: none;
+}
+
+.profile__submit-success {
+  width: 100%;
+  position: absolute;
+  bottom: 65px;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 14px;
+  color: #04a004;
+  text-align: center;
+}
+
+.profile__submit-success_hidden {
   display: none;
 }
 

@@ -5,6 +5,7 @@
 }
 
 .searchform__container {
+  position: relative;
   height: 46px;
   background: #F9F9F9;
   border-radius: 40px;
@@ -45,6 +46,16 @@
   font-size: 0;
 }
 
+.searchform__error {
+  position: absolute;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 14px;
+  color: rgba(255, 48, 85, 1);
+  top: 50px;
+  left: 22px;
+}
+
 .searchform__submit {
   height: 34px;
   width: 58.65px;
@@ -63,6 +74,10 @@
 
 .searchform__submit:hover {
   opacity: .8;
+}
+
+.searchform__submit:focus {
+  outline: none;
 }
 
 @media screen and (max-width: 768px) {

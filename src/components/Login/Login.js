@@ -1,15 +1,23 @@
+import React from 'react';
 import logo from '../../images/logo.png';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import './Login.css';
-import useFormValidation from '../../utils/useFormValidation';
+import useFormWithValidation from '../../utils/useFormWithValidation';
 
-function Login() {
+function Login(props) {
+  const history = useHistory();
   const {
     values, handleChange, errors, isValid,
-  } = useFormValidation();
+  } = useFormWithValidation({email: '', password: ''});
+
+  React.useEffect(() => {
+    props.setError(false);
+  }, [history]);
 
   function handleSubmit(e) {
     e.preventDefault();
+    const {email, password} = values;
+    props.handleSubmit(email, password);
   }
 
   return (
@@ -26,7 +34,8 @@ function Login() {
           <p className="login__input-title">Пароль</p>
           <input value={values.password} onChange={handleChange} name="password" autoComplete="off" id="password-input" type="password" className={`login__input ${errors.password ? 'login__input_type_error' : ''}`} minLength="2" maxLength="40" required/>
           <span className="login__error" id="password-input-error">{errors.password}</span>
-          <button className={`login__submit ${isValid ? '' : 'login__submit_disabled'}`} type="submit">Войти</button>
+          <span className={`login__submit-error ${props.isError ? '' : 'login__submit-error_hidden'}`} id="login-error">{props.isError.message ? props.isError.message : 'При попытке авторизации произошла ошибка.'}</span>
+          <button className={`login__submit ${isValid ? '' : 'login__submit_disabled'}`} type={isValid ? 'submit' : 'button'}>Войти</button>
         </form>
         <p className="login__signup">Ещё не зарегистрированы?<Link to="/signup" className="login__signup-link">Регистрация</Link></p>
       </div>

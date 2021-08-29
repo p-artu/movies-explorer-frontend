@@ -33,6 +33,9 @@
 
 .register__form {
   position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
 .register__input-title {
@@ -67,6 +70,14 @@
   margin: 0 0 83px;
 }
 
+.register__input::placeholder {
+  font-family: inherit;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #bdc4c2;
+}
+
 .register__input_type_error {
   color: #FF3055;
 }
@@ -87,6 +98,21 @@
 
 .register__error:nth-of-type(3n) {
   top: 186px;
+}
+
+.register__submit-error {
+  width: 100%;
+  position: absolute;
+  bottom: 75px;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: #FF004C;
+  text-align: center;
+}
+
+.register__submit-error_hidden {
+  display: none;
 }
 
 .register__submit {
@@ -118,6 +144,7 @@
   background: #f8f8f8;
   color: #c2c2c2;
   cursor: default;
+  pointer-events: none;
 }
 
 .register__signin {
@@ -159,6 +186,10 @@
   }
   .register__title {
     margin: 50px 0 80px;
+  }
+  .register__input::placeholder {
+    font-size: 12px;
+    line-height: 15px;
   }
   .register__submit {
     margin: 157px 0 14px;

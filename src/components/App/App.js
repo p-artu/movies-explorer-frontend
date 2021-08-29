@@ -17,10 +17,12 @@ import ProtectedRoute from '../ProtectedRoute/ProtectedRoute.js';
 import * as auth from '../../auth.js';
 import {CurrentUserContext} from '../../contexts/CurrentUserContext.js';
 import searchMovies from '../../utils/searchMovies';
+import {ShortFilmDuration} from '../../utils/constants.js';
 
 function App() {
   const {pathname} = useLocation();
   const history = useHistory();
+  const [isTokenChecked, setIsTokenChecked] = React.useState(false);
   const [isMenuPopupOpen, setIsMenuPopupOpen] = React.useState(false);
   const [loggedIn, setLoggedIn] = React.useState(false);
   const [currentUser, setCurrentUser] = React.useState({email: '', name: ''});
@@ -39,9 +41,9 @@ function App() {
   const [isShortFilmChecked, setIsShortFilmChecked] = React.useState(true);
   const [isShortSavedFilmChecked, setIsShortSavedFilmChecked] = React.useState(true);
   const [isOnlyCheckedSearch, setIsOnlyCheckedSearch] = React.useState(false);
+  const [isFormSent, setIsFormSent] = React.useState(false);
 
   React.useEffect(() => {
-    tokenCheck();
     MainApi.getAllInfo()
     .then(([user, movies]) => {
       setCurrentUser(user);
@@ -51,6 +53,7 @@ function App() {
     .catch(err => {
       console.error(err);
     });
+    tokenCheck();
   }, []);
   React.useEffect(() => {
     setIsNotFound(false);
@@ -81,9 +84,16 @@ function App() {
         auth.getContent(token).then(res => {
           if (res){
             setLoggedIn(true);
+            setIsTokenChecked(true);
+          } else {
+            setIsTokenChecked(true);
           }
         });
+      } else {
+        setIsTokenChecked(true);
       }
+    } else {
+      setIsTokenChecked(true);
     }
   }
 
@@ -110,6 +120,9 @@ function App() {
     .catch(err => {
       console.error(`Ошибка: ${err.message}`);
       setIsRegisterError(err);
+    })
+    .finally(() => {
+      setIsFormSent(false);
     });
   }
   function handleLoginSubmit(email, password) {
@@ -122,6 +135,9 @@ function App() {
     .catch(err => {
       console.error(`Ошибка: ${err.message}`);
       setIsLoginError(err);
+    })
+    .finally(() => {
+      setIsFormSent(false);
     });
   }
   function handleUpdateUser(email, name) {
@@ -133,6 +149,9 @@ function App() {
     .catch(err => {
       console.error(`Ошибка: ${err.message}`);
       setIsProfileUpdateError(err);
+    })
+    .finally(() => {
+      setIsFormSent(false);
     });
   }
   async function handleSearchMovies(keyWord) {
@@ -159,7 +178,7 @@ function App() {
   function handleSearchMoviesChecked() {
     const isShort = isShortFilmChecked;
     const cards = JSON.parse(localStorage.getItem('foundMovies'));
-    const shortCards = cards.filter(movie => (movie.duration > (isShort ? 0 : 40)));
+    const shortCards = cards.filter(movie => (movie.duration > (isShort ? 0 : ShortFilmDuration)));
     setCards(shortCards);
     setIsNotFound(!shortCards.length);
   }
@@ -199,6 +218,7 @@ function App() {
   
   return (
     <CurrentUserContext.Provider value={currentUser}>
+      {isTokenChecked &&
       <div className="page">
         <Header onOpen={openMenu} loggedIn={loggedIn} />
         <Switch>
@@ -237,20 +257,34 @@ function App() {
             isError={isProfileUpdateError}
             setError={setIsProfileUpdateError}
             isSuccess={isUpdateSuccessful}
+            isFormSent={isFormSent}
+            setIsFormSent={setIsFormSent}
           />
           <Route exact path="/">
             <Main />
           </Route>
           <Route exact path="/signin">
             {!loggedIn ? (
-              <Login handleSubmit={handleLoginSubmit} isError={isLoginError} setError={setIsLoginError} />
+              <Login
+                handleSubmit={handleLoginSubmit}
+                isError={isLoginError}
+                setError={setIsLoginError}
+                isFormSent={isFormSent}
+                setIsFormSent={setIsFormSent}
+              />
             ) : (
               <Redirect to="/movies" />
             )}
           </Route>
           <Route exact path="/signup">
             {!loggedIn ? (
-              <Register handleSubmit={handleRegisterSubmit} isError={isRegisterError} setError={setIsRegisterError} />
+              <Register
+                handleSubmit={handleRegisterSubmit}
+                isError={isRegisterError}
+                setError={setIsRegisterError}
+                isFormSent={isFormSent}
+                setIsFormSent={setIsFormSent}
+              />
             ) : (
               <Redirect to="/movies" />
             )}
@@ -261,7 +295,7 @@ function App() {
         </Switch>
         <Footer />
         <MenuPopup isOpen={isMenuPopupOpen} onClose={closeMenu} />
-      </div>
+      </div>}
     </CurrentUserContext.Provider>
   );
 }

@@ -1,6 +1,9 @@
 import React from 'react';
 import './MoviesCardList.css';
 import MoviesCard from '../MoviesCard/MoviesCard.js';
+import {
+  WidthScreenRebuild, FilmsBatchLengthWide, FilmsBatchLengthNarrow, FilmsBatchLengthWideMore, FilmsBatchLengthNarrowMore
+} from '../../utils/constants.js';
 
 function MoviesCardList(props) {
   const [batchLength, setBatchLength] = React.useState(0);
@@ -15,20 +18,20 @@ function MoviesCardList(props) {
     }
   });
   React.useEffect(() => {
-    if (size > 600) {
-      if (batchLength > 4) {
+    if (size > WidthScreenRebuild) {
+      if (batchLength > FilmsBatchLengthWide) {
         setBatchLength(batchLength);
       } else {
-        setBatchLength(4);
+        setBatchLength(FilmsBatchLengthWide);
       }
-      setBatchLengthMore(1);
+      setBatchLengthMore(FilmsBatchLengthWideMore);
     } else {
-      if (batchLength > 5) {
+      if (batchLength > FilmsBatchLengthNarrow) {
         setBatchLength(batchLength);
       } else {
-        setBatchLength(5);
+        setBatchLength(FilmsBatchLengthNarrow);
       }
-      setBatchLengthMore(2);
+      setBatchLengthMore(FilmsBatchLengthNarrowMore);
     }
   }, [props.cards, size]);
 
@@ -52,6 +55,9 @@ function MoviesCardList(props) {
               card={card}
               isSaved={props.isSaved}
               key={card._id}
+              handleSaveMovie={props.handleSaveMovie}
+              savedCardsId={props.savedCardsId}
+              deleteMovie={props.deleteMovie}
             />
           )) :
         props.cards.reduce((filmsBatch, card) => {

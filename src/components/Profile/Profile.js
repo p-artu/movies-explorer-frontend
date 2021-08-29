@@ -35,12 +35,13 @@ function Profile(props) {
     document.querySelector('#email-input').removeAttribute('disabled');
   }
   function handleSubmit(e) {
+    props.setIsFormSent(true);
     e.preventDefault();
     const {email, name} = values;
-    props.handleSubmit(email, name);
-    setIsEdited(false);
     document.querySelector('#name-input').setAttribute('disabled', 'disabled');
     document.querySelector('#email-input').setAttribute('disabled', 'disabled');
+    props.handleSubmit(email, name);
+    setIsEdited(false);
   }
 
   return (
@@ -63,7 +64,7 @@ function Profile(props) {
           <span className={`profile__submit-success ${(props.isSuccess && !isEdited) ? '' : 'profile__submit-success_hidden'}`} id="profile-success">Ваш профиль успешно обновился!</span>
           <span className={`profile__submit-error ${props.isError ? '' : 'profile__submit-error_hidden'}`} id="profile-error">{props.isError.message ? props.isError.message : 'При обновлении профиля произошла ошибка.'}</span>
           <button onClick={handleEdit} className={`profile__submit ${isEdited ? 'profile__submit_hidden' : ''}`} type="button">Редактировать</button>
-          <button className={`profile__save-submit ${isEdited ? '' : 'profile__save-submit_hidden'} ${(props.isError || errors.name || errors.email || !hasChanges) ? 'profile__save-submit_disabled' : ''}`} type={(props.isError || errors.name || errors.email || !hasChanges) ? 'button' : 'submit'}>Сохранить</button>
+          <button className={`profile__save-submit ${isEdited ? '' : 'profile__save-submit_hidden'} ${(props.isError || errors.name || errors.email || !hasChanges || props.isFormSent) ? 'profile__save-submit_disabled' : ''}`} type={(props.isError || errors.name || errors.email || !hasChanges || props.isFormSent) ? 'button' : 'submit'}>Сохранить</button>
         </form>
         <button onClick={props.signOut} className={`profile__exit ${isEdited ? 'profile__exit_hidden' : ''}`} type="button">Выйти из аккаунта</button>
       </div>

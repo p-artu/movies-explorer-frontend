@@ -1,11 +1,12 @@
 import './MoviesCard.css';
 import handleIsLike from '../../utils/handleIsLike';
+import {HourDuration} from '../../utils/constants.js';
 
 function MoviesCard(props) {
   let isLiked = handleIsLike(props.card, props.savedCardsId);
   const cardLikeButtonClassName = `moviescard__like ${isLiked ? 'moviescard__like_active' : ''}`;
-  const hours = Math.trunc(props.card.duration/60);
-  const minutes = props.card.duration%60;
+  const hours = Math.trunc(props.card.duration/HourDuration);
+  const minutes = props.card.duration%HourDuration;
   const time = `${hours>0 ? hours+'ч ' : ''}${minutes>0 ? minutes+'м' : ''}`;
   const trailer = `${props.isSaved ? props.card.trailer : props.card.trailerLink}`;
 

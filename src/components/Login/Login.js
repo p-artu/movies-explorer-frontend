@@ -15,6 +15,7 @@ function Login(props) {
   }, [history]);
 
   function handleSubmit(e) {
+    props.setIsFormSent(true);
     e.preventDefault();
     const {email, password} = values;
     props.handleSubmit(email, password);
@@ -29,13 +30,13 @@ function Login(props) {
         <h1 className="login__title">Рады видеть!</h1>
         <form className="login__form" onSubmit={handleSubmit} noValidate>
           <p className="login__input-title">E-mail</p>
-          <input value={values.email} onChange={handleChange} name="email" autoFocus autoComplete="off" id="email-input" type="email" className={`login__input ${errors.email ? 'login__input_type_error' : ''}`} minLength="2" maxLength="40" required/>
+          <input value={values.email} onChange={handleChange} name="email" autoFocus autoComplete="off" id="email-input" type="email" className={`login__input ${errors.email ? 'login__input_type_error' : ''}`} minLength="2" maxLength="40" required disabled={props.isFormSent}/>
           <span className="login__error" id="email-input-error">{errors.email}</span>
           <p className="login__input-title">Пароль</p>
-          <input value={values.password} onChange={handleChange} name="password" autoComplete="off" id="password-input" type="password" className={`login__input ${errors.password ? 'login__input_type_error' : ''}`} minLength="2" maxLength="40" required/>
+          <input value={values.password} onChange={handleChange} name="password" autoComplete="off" id="password-input" type="password" className={`login__input ${errors.password ? 'login__input_type_error' : ''}`} minLength="2" maxLength="40" required disabled={props.isFormSent}/>
           <span className="login__error" id="password-input-error">{errors.password}</span>
           <span className={`login__submit-error ${props.isError ? '' : 'login__submit-error_hidden'}`} id="login-error">{props.isError.message ? props.isError.message : 'При попытке авторизации произошла ошибка.'}</span>
-          <button className={`login__submit ${isValid ? '' : 'login__submit_disabled'}`} type={isValid ? 'submit' : 'button'}>Войти</button>
+          <button className={`login__submit ${(isValid && !props.isFormSent) ? '' : 'login__submit_disabled'}`} type={(isValid && !props.isFormSent) ? 'submit' : 'button'}>Войти</button>
         </form>
         <p className="login__signup">Ещё не зарегистрированы?<Link to="/signup" className="login__signup-link">Регистрация</Link></p>
       </div>

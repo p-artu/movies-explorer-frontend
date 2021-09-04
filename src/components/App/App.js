@@ -178,7 +178,15 @@ function App() {
   function handleSearchMoviesChecked() {
     const isShort = isShortFilmChecked;
     const cards = JSON.parse(localStorage.getItem('foundMovies'));
-    const shortCards = cards.filter(movie => (movie.duration > (isShort ? 0 : ShortFilmDuration)));
+    // const shortCards = cards.filter(movie => (movie.duration > (isShort ? 0 : ShortFilmDuration)));
+    const shortCards = cards.filter(movie => {
+      if (isShort) {
+        if (movie.duration < 40) { return true }
+      }
+      else {
+        if (movie.duration >= 40) { return true }
+      }
+    })
     setCards(shortCards);
     setIsNotFound(!shortCards.length);
   }

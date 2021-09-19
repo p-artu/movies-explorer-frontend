@@ -41,6 +41,10 @@
   font-weight: 500;
 }
 
+.navigation__link_main {
+  color: #fff;
+}
+
 .navigation__link-account {
   margin: 0;
   text-decoration: none;
@@ -59,8 +63,16 @@
   margin: 0;
   color: #000;
   font-size: 14px;
-  font-weight: 500;
+  font-weight: 400;
   line-height: 16px;
+}
+
+.navigation__link-account-text_main {
+  color: #fff;
+}
+
+.navigation__link-account_active .navigation__link-account-text {
+  font-weight: 500;
 }
 
 .navigation__link-account-box {

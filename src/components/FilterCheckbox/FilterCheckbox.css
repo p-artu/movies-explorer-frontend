@@ -14,18 +14,18 @@
 }
 
 .filtercheckbox__invisible:checked + .filtercheckbox__visible-container {
-  justify-content: flex-start;
+  justify-content: flex-end;
 }
 
 .filtercheckbox__invisible:checked + .filtercheckbox__visible-container .filtercheckbox__visible {
-  background: #F5F5F5;
+  background: #2BE080;
 }
 
 .filtercheckbox__visible-container {
   margin: 0;
   padding: 2px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
   width: 36px;
   height: 20px;
   background: #fff;
@@ -39,7 +39,7 @@
   height: 16px;
   width: 16px;
   border-radius: 50%;
-  background: #2BE080;
+  background: #F5F5F5;
 }
 
 .filtercheckbox__text {

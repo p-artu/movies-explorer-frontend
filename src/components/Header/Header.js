@@ -12,12 +12,12 @@ function Header(props) {
       ${(pathname === '/signup' || pathname === '/signin') ? 'header_hidden' : ''}
       ${(pathname === '/') ? 'header_background' : ''}`
     }>
-      <div className={`header__container ${(pathname === '/ss') ? 'header__container_not-flexible' : ''}`}>
+      <div className={`header__container`}>
         <Link to={'/'} className="header__logo">
           <img className="header__logo-image" alt="Логотип" src={logo} />
         </Link>
         {
-        (pathname === '/') ? (
+        !props.loggedIn ? (
           <div className="header__links">
             <Link
               to={'/signup'}
